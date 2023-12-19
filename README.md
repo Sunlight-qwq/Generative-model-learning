@@ -1,2 +1,3 @@
 # Generative-model-learning
-A repository to record my learning of generative models
+
+This is a personal repository to record the author's notes and codes during the learning of generative models, including diffusion models.
