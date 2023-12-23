@@ -130,6 +130,7 @@ def generate(net: nn.Module, num: int, device: torch.device) -> torch.Tensor:
         for t in reversed(range(NUM_STEP)):
             t = t * torch.ones(num).long().to(device)
             e_hat = net(x_t, t)
+            t = t.reshape(-1, 1, 1, 1)
             t.unsqueeze_(-1)
             mean = 1 / alphas[t].sqrt() * (x_t - betas[t] / one_minus_alphas_bar_sqrt[t] * e_hat)
             z_bar_t = torch.randn(num, 2).to(device)
